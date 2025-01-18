@@ -1,0 +1,64 @@
+body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .header {
+            align: right;
+            margin-bottom: 20px;
+        }
+
+h2 {
+    font-family: Arial, sans-serif;
+   font-size: 15px;
+}
+h3 {
+    font-family: Arial, sans-serif;
+   font-size: 12px;
+  font-color: red;
+}
+h4 {
+    font-family: Arial, sans-serif;
+   font-size: 10px;
+  font-color: red;
+}
+        
+        .content {
+            margin-bottom: 20px;
+        }
+        
+        .table-body {
+            width: 100%;
+            border-collapse: collapse;
+            border-bottom: 2px solid #000;
+            }
+        .tbl-items {
+            width: 100%;
+            border-collapse: collapse;
+            border-top: 2px solid #000;
+            border-bottom: 2px solid #000;
+        }
+        
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+        
+        }
+        
+        .tbl-items tr:last-child {
+            border-top: 2px solid #000
+        }
+        
+        .tbl-logo {
+            border: none
+        }
+       
+        .tbl-items th {
+            align: center;
+            border-bottom: 2px solid #000;
+            border-top: 2px solid #000;
+        }
+        .tbl-items td {
+            align: center;
+            padding: 0px;
+        }

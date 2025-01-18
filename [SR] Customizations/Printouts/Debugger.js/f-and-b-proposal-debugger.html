@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE pdf PUBLIC "-//big.faceless.org//report" "report-1.1.dtd">
+<pdf>
+<head>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"></link>
+	<style type="text/css">
+	body {
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.content {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #000;
+    /* Add border */
+}
+
+.additional-content {
+    margin-top: 20px;
+}
+
+.tbl-sublist {
+    border-top: none;
+    width: 100%;
+}
+
+.tbl-sublist th,
+.tbl-sublist td {
+    text-align: center;
+}
+	</style>
+</head>
+<body>
+	<div class="header">
+        <span>Date: February 07, 2023</span>
+    </div>
+    <div class="content">
+        <p>Thank you for your recent enquiry with us. Please see below our menu proposal for the event on February 09, 2023.</p>
+    </div>
+    <table>
+        <tr>
+            <td>TraccFcs Doc. No.
+			<br/>Option 1 - BEO-MPC-23-02-014
+			<br/>Option 2 - BEO-MPC-23-02-013</td>
+        </tr>
+        <tr>
+            <td>Amendment: 0</td>
+        </tr>
+		<tr>
+            <td>Event Date: {{bodyfields.eventdate}}</td>
+            
+        </tr>
+		<tr>
+            <td>Venue: {{bodyfields.venue}}</td>
+            
+        </tr>
+		<tr>
+            <td>No of Pax: {{bodyfields.pax}} pax</td>
+            
+        </tr>
+		<tr>
+            <td>Price: Php {{bodyfields.price}} per person</td>
+        </tr>
+    </table>
+	<table class="tbl-items">
+        <tr>
+            <th><strong>Menu</strong></th>
+            
+        </tr>
+        {{#each sublists.FoodMenu}}
+    <tr>
+      <td><strong>{{@key}}</strong>
+      <br/>
+      {{#each this}}
+      {{item}}
+      <br/>
+      {{/each}}
+      </td>
+    </tr>
+    {{/each}}
+    </table>
+	<div class="additional-content">
+        <p>Quotation is valid for 30 days upon receipt.</p>
+        <p>Please let us know if you wish to proceed or advise us of any queries, suggestions, or further enhancements.</p>
+        <p>We are looking forward to be at your service.</p>
+        <p>Thank you.</p>
+    </div>
+</body>
+</pdf>

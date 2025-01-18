@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.sec-table {
+    border: 0.3px black;
+}
+.sec-table tr{
+    border: 0.3px black;
+}
+.sec-table td{
+    border: 0.3px black;
+}
+.tbl-logo {
+    border: none
+}
+.title {
+    font-size: 15px;
+    align: left;
+}
+
+.divider {
+    border: .7px black;
+    width: 100%;
+}
+
+.divider-sub {
+    border: .7px black;
+    width: 50%;
+}
+
+.items {
+    margin-top: 5px;
+    font-size: 9px;
+}
+.classification {
+    padding: 0px;
+    margin: 0px;
+}
+.column-small {
+    width: 95.83px;
+}
+
+.column-large {
+    width: 231.66px;
+}
+
+.column-medium {
+    width: 173.75px;
+}

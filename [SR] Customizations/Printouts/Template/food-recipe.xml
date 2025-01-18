@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE pdf PUBLIC "-//big.faceless.org//report" "report-1.1.dtd">
+<pdf>
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"></link>
+    <style type="text/css"> {{css}} </style>
+</head>
+<body header="nlheader" header-height="16px" size="letter">
+    <div>
+        <h2>HIZON'S RESTAURANT AND CATERING SERVICES, INC.</h2>
+        <p>STANDARD RECIPE (50PAX)</p>
+        <p>Date Printed: {{bodyfields.currentdate}}</p>
+    </div>
+
+<p></p>
+<table class="table-body">
+<tr>
+<td>Date Entered: {{bodyfields.created}}</td>
+<td>Revision Date: {{bodyfields.revisiondate}}</td>
+</tr>
+<tr>
+<td>Product Code: {{bodyfields.productcode}}</td>
+<td>Level: L{{bodyfields.level}}</td>
+</tr>
+<tr>
+<td>Product Name: {{bodyfields.productname}}</td>
+<td>Price/Head: {{bodyfields.priceperhead}}</td>
+</tr>
+<tr>
+<td>Menu Classification: {{bodyfields.menuclassification}}</td>
+</tr>
+<tr>
+<td>Serving Specification: {{bodyfields.servingspecification}}</td>
+</tr>
+<tr>
+<td>Service Style Code: {{bodyfields.servicestylecode}}</td>
+</tr>
+<tr>
+<td>Status: {{bodyfields.status}}</td>
+</tr>
+<tr>
+<td>Remarks: {{bodyfields.remarks}} </td>
+</tr>
+</table>
+
+
+<table class="tbl-items">
+<tr>
+<th>Ingredients</th>
+<th>U/M</th>
+<th>Quantity</th>
+<th>Cost</th>
+<th>Amount</th>
+</tr>
+{{#each sublists.Ingredients}}
+<tr>
+<td><strong>{{getCategory @key}}</strong></td>
+</tr>
+{{#each this}}
+{{getRecipe @key}}
+{{#each this}}
+<tr>
+<td>{{itemcode}}</td>
+<td>{{unitsofmeasure}}</td>
+<td>{{quantity}}</td>
+<td>{{cost}}</td>
+<td>{{amount}}</td>
+</tr>
+{{/each}}
+{{/each}}
+{{/each}}
+<tr>
+    <td><strong>TOTAL COST</strong></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>{{bodyfields.totalcost}}</td>
+</tr>
+</table>
+
+
+
+<span><strong>Site Procedure</strong></span>
+<p></p>
+<span>{{bodyfields.siteprocedure}}</span>
+
+</body>
+</pdf>

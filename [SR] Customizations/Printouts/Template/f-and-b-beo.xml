@@ -1,0 +1,236 @@
+<?xml version="1.0"?>
+<!DOCTYPE pdf PUBLIC "-//big.faceless.org//report" "report-1.1.dtd">
+<pdf>
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"></link>
+	<style type="text/css">
+		{{css}}
+	</style>
+ <macrolist>
+    <macro id="nlheader">
+        <table class="tbl-logo">
+            <tr>
+                <td align="left"> <img src="{{bodyfields.logo_catering}}" style="width: 200px; height: 170px;"/> </td>
+            </tr>
+        </table>
+    </macro>
+    </macrolist>
+</head>
+<body header="nlheader" header-height="70px" size="letter">
+
+    <div class="header" align="center">
+        <h2 class="banquet-heading">BANQUET EVENT ORDER</h2>
+        <h2 class="client-copy">CLIENT COPY</h2>
+    </div>
+    <br/>
+
+    <table class="top-table">
+        <tr>
+            <th>Prepared Date: {{bodyfields.prepared_date}}</th>
+            <th>Doc. No. {{bodyfields.doc_num}}</th>
+        </tr>
+        <tr>
+            <td>Customer: {{bodyfields.customer}}</td>
+        </tr>
+        <tr>
+            <td>Nature of Function: {{bodyfields.nature_of_function}}</td>
+            <td>Date of Event: {{bodyfields.date_of_event}}</td>
+        </tr>
+        <tr>
+            <td>Service Time: {{bodyfields.service_time}}</td>
+            <td>Contact Details: {{bodyfields.contact_details}}</td>
+        </tr>
+        <tr>
+            <td>Venue: {{bodyfields.venue}}</td>
+            <td>Dispatch Time: {{lookUpfld.custbody_hz_dispatch_time}}</td>
+        </tr>
+        <tr>
+            <td>No. of Pax: {{bodyfields.pax}}</td>
+            <td>Price/Head: PHP {{bodyfields.price_per_head}}</td>
+        </tr>
+    </table>
+<div style="padding-top:50px;">
+    <table class="parent-table">
+    <tr>
+        <td>
+            <table class="table-in">
+                <tr>
+                    <th><strong>Menu</strong></th>
+                </tr>
+                {{#each sublists.Menu}}
+                    <tr>
+                        <td><strong>{{@key}}</strong></td>
+                    </tr>
+                    {{#each this}}
+                    <tr>
+                        <td>{{item}}</td>
+                    </tr>
+                    {{/each}}
+                    <tr>
+                        <td><br/></td>
+                    </tr>
+                    {{/each}}
+
+                <tr>
+                    <th><strong>Notes:</strong></th>
+                </tr>
+                <tr>
+                    <th><strong>{{bodyfields.fm_notes}}</strong></th>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table class="table-in">
+                <tr>
+                    <th><strong>Bar Requirements</strong></th>
+                </tr>
+                <tr>
+                    <td><br/>{{bodyfields.bar_req}}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<table class="parent-table">
+    <tr>
+        <td>
+            <table class="table-in">
+                <tr>
+                    <th><strong>Amenities</strong></th>
+                </tr>
+                
+                {{#each sublists.Amenities}}
+                    <tr>
+                        <td><strong>{{@key}}</strong></td>
+                    </tr>
+                    {{#each this}}
+                    <tr>
+                        <td>{{item}}</td>
+                    </tr>
+                    {{/each}}
+                    <tr>
+                        <td><br/></td>
+                    </tr>
+                    {{/each}}
+            </table>
+        </td>
+        <td>
+            <table class="table-in">
+                <tr>
+                    <th><strong>Set-up Requirements</strong></th>
+                </tr>
+                <tr>
+                    <td><br/>{{bodyfields.setup_req}}</td>  
+                </tr>
+                
+            </table>
+        </td>
+    </tr>
+</table>
+
+<table class="parent-table">
+ <tr>
+        <td>
+            <table class="table-in">
+                <tr>
+                    <th><strong>Flower Design</strong></th>
+                </tr>
+                
+                {{#each sublists.FlowerDesign}}
+                    <tr>
+                        <td><strong>{{@key}}</strong></td>
+                    </tr>
+                    {{#each this}}
+                    <tr>
+                        <td>{{name}}</td>
+                    </tr>
+                    {{/each}}
+                    <tr>
+                        <td><br/></td>
+                    </tr>
+                    {{/each}}
+            </table>
+        </td>
+</tr>
+</table>
+
+<table class="parent-table">
+    <tr>
+        <td>
+            <table class="table-in">
+                <tr>
+                    <th><strong>Other charges</strong></th>
+                </tr>
+                <tr>
+                    <td><br/>{{bodyfields.others}}</td>  
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table class="table-in">
+                <tr>
+                    <th colspan="4"><strong>Billing Breakdown</strong></th>
+                </tr>
+            
+                <tr>
+                    <td>Description</td>
+                    <td>Rate</td>
+                    <td>Quantity</td>
+                    <td>Amount</td>  
+                </tr>
+                {{#each sublists.BillableItems}}
+                <tr>
+                    <td>{{itemDisplay}}</td>
+                    <td>{{itemRate}}</td>
+                    <td>{{itemQuantity}}</td>
+                    <td>{{itemAmount}}</td>
+                </tr>
+                {{/each}}
+               
+            </table>
+        </td>
+    </tr>
+</table>
+</div>
+<p></p>
+<p></p>
+<div style="padding-top:50px;">
+<table class="top-table">
+        <tr>
+            <th><strong>Billing Details</strong></th>
+            <th><strong>Billing Statement</strong></th>
+            <th><strong></strong></th>
+        </tr>
+        <tr>
+            <td><span class="check-box">x</span>Bill to client Terms: {{bodyfields.ini_terms}}</td>
+            <td><span class="check-box">x</span>AM Snacks Only</td>
+            <td><span class="check-box">x</span>Lunch Only</td>
+        </tr>
+        <tr>
+            <td><span class="check-box">x</span>Cash by client</td>
+            <td><span class="check-box">x</span>PM Snacks Only</td>
+            <td><span class="check-box">x</span>Meals Only</td>
+        </tr>
+        <tr>
+            <td><br/>Prepared By:</td>
+            <td><br/>Approved By:</td>
+            <td><br/>Noted By:</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <td class="signature-line" colspan="3">________________________</td>
+            <td class="signature-line" colspan="3">________________________</td>
+            <td class="signature-line" colspan="3">________________________</td>
+        </tr>
+        <tr>
+            <td class="signature-line" colspan="3">Order Taker / Planner</td>
+            <td class="signature-line" colspan="3">Outlet Manager</td>
+            <td class="signature-line" colspan="3">Operations Manager</td>
+        </tr>
+    </table>
+</div>
+</body>
+</pdf>

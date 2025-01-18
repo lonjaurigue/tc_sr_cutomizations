@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pdf PUBLIC "-//big.faceless.org//report" "report-1.1.dtd">
+<pdf>
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"></link>
+<style type="text/css">{{css}}</style>
+</head>
+<body header="nlheader" header-height="70px" size="letter">
+<p><img src="{{bodyfields.logo}}" style="width: 150px; height: 120px;"/></p>
+<h2 style = "font-family: Arial, sans-serif; font-size: 15px;"><strong>HIZON'S RESTAURANT AND CATERING SERVICES, INC - MPC</strong></h2>
+<p style =  "font-family: Arial, sans-serif; font-size: 12px;">MANPOWER RECIPE</p>
+<p style = "font-family: Arial, sans-serif; font-size: 12px;">Date Printed: {{bodyfields.currentdate}}</p>
+<p></p>
+<p></p>
+
+<table class="table-body">
+<tr>
+<td>Date Entered:</td>
+<td> {{bodyfields.datecreated}}</td>
+<td>No. of Pax:</td>
+<td>{{bodyfields.quantity}}</td>
+</tr>
+<tr>
+<td>Product Code:</td>
+<td>{{bodyfields.itemcode}}</td>
+<td>Event Cost:</td>
+<td>{{bodyfields.totalcoststored}}</td>
+</tr>
+<tr>
+<td>Product Name:</td>
+<td>{{bodyfields.recipename}}</td>
+<td>Cost/Pax: </td>
+<td>{{bodyfields.unitcoststoredrecipe}}</td>
+</tr>
+<tr>
+<td>Classification:</td>
+</tr>
+<tr>
+<td>Remarks:</td>
+<td>{{bodyfields.remarks}}</td>
+</tr>
+<tr>
+<td>Status:</td>
+<td>{{bodyfields.status}}</td>
+</tr>
+</table>
+<p></p>
+<p></p>
+
+
+<table class="table-items">
+<tr>
+<th>Position</th>
+<th>Quantity</th>
+<th>Cost</th>
+<th>Amount</th>
+</tr>
+{{#each sublists.Requirements}}
+<tr>
+<td>{{rank}}</td>
+<td style="align:right;">{{quantity}}</td>
+<td style="align:right;">{{cost}}</td>
+<td style="align:right;">{{amount}}</td>
+</tr>
+{{/each}}
+<tr>
+<td style="border-right: 0px"><strong>TOTAL COST</strong></td>
+<td style="border-right: 0px; border-left: 0px"></td>
+<td style="border-left: 0px"></td>
+<td style="align:right;">{{bodyfields.totalcoststored}}</td>
+</tr>
+</table>
+
+</body>
+</pdf>

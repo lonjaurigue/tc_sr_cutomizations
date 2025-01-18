@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE pdf PUBLIC "-//big.faceless.org//report" "report-1.1.dtd">
+<pdf>
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"></link>
+    <style type="text/css"> {{css}} </style>
+</head>
+<body header="nlheader" header-height="16px" size="letter">
+    <div>
+        <h2>HIZON'S RESTAURANT AND CATERING SERVICES, INC.</h2>
+        <p>Issuance Form</p>
+        <p>Date Printed: {{bodyfields.currentdate}}</p>
+    </div>
+    <div class="content">
+<p></p>
+<table class="table-body">
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Date:</td>
+<td><strong>{{bodyfields.currentdate}}</strong></td>
+</tr>
+<tr>
+<td>Client: </td>
+<td><strong>{{bodyfields.outlet}}</strong></td>
+<td>Date of Event</td>
+<td><strong>{{bodyfields.dateofevent}}</strong></td>
+<td>Serving Time:</td>
+<td><strong>{{bodyfields.servingtime}}</strong></td>
+</tr>
+<tr>
+<td>Nature of Func: </td>
+<td><strong>{{bodyfields.natureoffunction}}</strong></td>
+<td>Charge To:</td>
+<td><strong>{{bodyfields.chargeto}}</strong></td>
+<td>Venue</td>
+<td><strong>{{bodyfields.venue}}</strong></td>
+</tr>
+<tr>
+<td>Remarks: </td>
+<td><strong>{{bodyfields.remarks}}</strong></td>
+<td></td>
+<td></td>
+<td>Contract Price/Head</td>
+<td><strong>{{bodyfields.costperhead}}</strong></td>
+</tr>
+</table>
+
+
+<table class="tbl-items">
+<tr>
+<th>Ingredients</th>
+<th>Brand</th>
+<th>Qty</th>
+<th>U/M</th>
+</tr>
+{{#each sublists.FoodMenu}}
+<tr>
+<td style="align:left;">MENU CODE: <strong>{{getMenu @key}}</strong></td>
+<td style="align:left;">CLASS:</td>
+<td style="align:left;">NO OF PAX: {{this.0.pax}}</td>
+</tr>
+<tr>
+<td style="align:left;">DESCRIPTION: </td>
+</tr>
+<tr style="padding-bottom:10px;">
+<td style="align:left;">SERVING: {{this.0.servingspecification}}</td>
+</tr>
+{{#each this}}
+<tr>
+<td style="align:left;">{{item}}</td>
+<td></td>
+<td>{{quantity}}</td>
+<td>{{uom}}</td>
+</tr>
+{{/each}}
+{{/each}}
+</table>
+
+</div>
+</body>
+</pdf>

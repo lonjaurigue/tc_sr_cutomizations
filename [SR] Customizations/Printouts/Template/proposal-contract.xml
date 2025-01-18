@@ -1,0 +1,922 @@
+<?xml version="1.0"?>
+<!DOCTYPE pdf PUBLIC "-//big.faceless.org//report" "report-1.1.dtd">
+<pdf>
+<head>
+    <macrolist>
+    </macrolist>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"></link>
+	<style type="text/css">
+		{{css}}
+	</style>
+</head>
+
+<body>
+    <table class="tbl-logo">
+        <tr>
+            <td align="left"> <img src="{{bodyfields.logo_catering}}" style="width: 100px; height: 70px;"/> </td>
+        </tr>
+    </table>
+
+	<table> 
+        <tr>
+            <td class="title">HIZON'S RESTAURANT AND CATERING SERVICES, INC.</td>
+            <td align="right">Date Printed: 07/18/2022 05:04:35 PM</td>
+        </tr>
+        <tr>
+            <td>CONTRACT</td>
+            <td></td>
+        </tr>
+    </table>
+
+    <table class="header-info"> 
+        <tr>
+            <td>CONTRACT NUMBER:</td>
+            <td colspan="3">Not available</td>
+            <td>CRA. NUMBER:</td>
+            <td>Not available</td>
+        </tr>
+        <tr>
+            <td>NAME OF CLIENT:</td>
+            <td colspan="3">Not available</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>CLIENT REPRESENTATIVE:</td>
+            <td colspan="3"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>VENUE:</td>
+            <td colspan="3">{{bodyfields.venue}}</td>
+            <td>SALES AGENT:</td>
+            <td>Not Available</td>
+        </tr>
+        <tr>
+            <td>VENUE ADDRESS:</td>
+            <td colspan="3">Not Available</td>
+            <td>EVENT PLANNER:</td>
+            <td>Not Available</td>
+        </tr>
+        <tr>
+            <td>EVENT NAME:</td>
+            <td colspan="3">{{bodyfields.event_name}}</td>
+            <td>MOBILE NO.:</td>
+            <td>Not Available</td>
+        </tr>
+        <tr>
+            <td>VENUE ROOM:</td>
+            <td colspan="3">Not Available</td>
+            <td>EMAIL:</td>
+            <td>Not Available</td>
+        </tr>
+        <tr>
+            <td>CEREMONY VENUE ADDRESS:</td>
+            <td colspan="3">Not Available</td>
+            <td>STYLIST</td>
+            <td>Not Available</td>
+        </tr>
+        <tr>
+            <td>ADDRESS:</td>
+            <td colspan="3">Not Available</td>
+            <td>CRA:</td>
+            <td>Not Available</td>
+        </tr>
+        <tr>
+            <td>TEL. NUMBER:</td>
+            <td>Not Available</td>
+            <td>CELL NUMBER:</td>
+            <td>Not Available</td>
+            <td>INITIAL CONTRACT</td>
+            <td>Not Available</td>
+        </tr>
+         <tr>
+            <td>EMAIL:</td>
+            <td colspan="3">Not Available</td>
+            <td>APPROVED CONTRACT</td>
+            <td>Not Available</td>
+        </tr>
+        <tr>
+            <td>DATE OF EVENT:</td>
+            <td colspan="3">{{bodyfields.event_date}}</td>
+            <td>APPROVED CONTRACT</td>
+            <td>Not Available</td>
+        </tr>
+        <tr>
+            <td>NATURE OF FUNCTION</td>
+            <td colspan="3">Not Available</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <br/>
+
+    <p class="classification"><strong>Event Information</strong></p>
+    <div class="divider">Event Information</div>
+    <table>
+        <tr>
+            <td>Description</td>
+            <td>Time From</td>
+            <td>Time To</td>
+            <td>Alloted Hours</td>
+        </tr>
+    </table>
+    <div class="divider"></div>
+    <table class="items">
+        <tr>
+            <td>Earliest Time</td>
+            <td>11 am</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Earliest Time</td>
+            <td>11 am</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <br/>
+
+    <div class="divider"></div>
+     <table>
+        <tr>
+            <td align="center">Type of Guest</td>
+            <td align="center">Type of Services</td>
+            <td align="center">Number of PAX</td>
+        </tr>
+    </table>
+    <div class="divider"></div>
+    <table class="items">
+        <tr>
+            <td align="center">Not available</td>
+            <td align="center">Not available</td>
+            <td align="center">{{bodyfields.pax}}</td>
+        </tr>
+    </table>
+
+    <br/>
+
+    <p class="classification"><strong>Bundled Items</strong></p>
+    <div class="divider"></div>
+    <table>
+        <tr>
+            <td>Item Code</td>
+            <td>Item Description</td>
+            <td align="right">Quantity UM</td>
+        </tr>
+    </table>
+    <div class="divider"></div>
+    <table class="items">
+        <tr>
+            <td>Not available</td>
+            <td align="center">Test description</td>
+            <td align="right">1 PCS</td>
+        </tr>
+         <tr>
+            <td>Not available</td>
+            <td align="center">Test description</td>
+            <td align="right">1 PCS</td>
+        </tr>
+    </table>
+    <p class="classification"><strong>Bundled Items Remarks</strong></p>
+    <div class="divider"></div>
+    <p>*NOT AVAILABLE*</p>
+
+    <br/>
+
+     {{#each sublists.FoodMenu}}
+    <p class="classification"><strong>{{getOptionName @key}}</strong></p>
+    <div class="divider"></div>
+    <table>
+        <tr>
+            <td class="column-medium"></td>
+            <td class="column-small"></td>
+            <td class="column-medium">Item Code</td>
+            <td class="column-large">Name</td>
+        </tr>
+    </table>
+    <div class="divider"></div>
+    <table class="items">
+    {{#each this}}
+        <tr>
+            <td class="column-medium">{{master_category}}</td>
+            <td class="column-small">{{master_level}}</td>
+            <td class="column-medium">{{item_code}}</td>
+            <td class="column-large">{{item}}</td>
+        </tr>
+    {{/each}}
+    </table>
+    <p class="classification"><strong>{{getOptionName @key}} Remarks</strong></p>
+    <div class="divider"></div>
+    <p>*NOT AVAILABLE*</p>
+    
+    <br/>
+    {{/each}}
+
+    <p class="classification"><strong>Design</strong></p>
+    <div class="divider"></div>
+    <p>ROUND TABLE CENTERPIECE AREA</p>
+    <br/>
+    <p class="classification"><strong>DESIGN</strong></p>
+    <div class="divider"></div>
+    <p>THEME: HODGEPODGE-GUEST (7set(s))</p>
+
+    <table class="sec-table">
+        <tr>
+            <td>VASES/EQUIPMENT</td>
+            <td>QTY/AREA</td>
+            <td>TOTAL QTY.</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - SQUARE VASE 4 X 8</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - RESIN SMALL CANDLE HOLDER GOLD</td>
+            <td>1</td>
+            <td>7</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - SCOTCH GLASS - NEW</td>
+            <td>2</td>
+            <td>14</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - RESIN TALL CANDLE HOLDER GOLD</td>
+            <td>1</td>
+            <td>7</td>
+        </tr>
+    </table>
+    <p class="classification"><strong>REMARKS: GOLD OLD DAYS CENTER PIECE</strong></p>
+
+    <br/>
+
+    <p class="classification"><strong>LINEN</strong></p>
+    <div class="divider"></div>
+    <p>LINEN RECIPE: GUEST TABLE - ROUND FOR 10 PAX (7 set(s))</p>
+
+    <table class="sec-table">
+        <tr>
+            <td>VASES/EQUIPMENT</td>
+            <td>QTY/AREA</td>
+            <td>TOTAL QTY.</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - SQUARE VASE 4 X 8</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - RESIN SMALL CANDLE HOLDER GOLD</td>
+            <td>1</td>
+            <td>7</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - SCOTCH GLASS - NEW</td>
+            <td>2</td>
+            <td>14</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - RESIN TALL CANDLE HOLDER GOLD</td>
+            <td>1</td>
+            <td>7</td>
+        </tr>
+    </table>
+
+
+
+
+    <br/>
+
+    <p class="classification"><strong>LOOSE ITEM</strong></p>
+    <div class="divider"></div>
+
+    <table class="sec-table">
+        <tr>
+            <td>VASES/EQUIPMENT</td>
+            <td>QTY/AREA</td>
+            <td>TOTAL QTY.</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+    </table>
+
+
+
+
+    <br/>
+
+    <p class="classification"><strong>COUPLES TABLE AREA</strong></p>
+    <div class="divider"></div>
+    <br/>
+    <p class="classification"><strong>DESIGN</strong></p>
+    <div class="divider"></div>
+    <p class="classification"><strong>THEME: AURELIAN GRACE-COUPLE (1 set(s))</strong></p>
+
+    <table class="sec-table">
+        <tr>
+            <td>VASES/EQUIPMENT</td>
+            <td>QTY/AREA</td>
+            <td>TOTAL QTY.</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - SQUARE VASE 4 X 8</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - RESIN SMALL CANDLE HOLDER GOLD</td>
+            <td>1</td>
+            <td>7</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - SCOTCH GLASS - NEW</td>
+            <td>2</td>
+            <td>14</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - RESIN TALL CANDLE HOLDER GOLD</td>
+            <td>1</td>
+            <td>7</td>
+        </tr>
+    </table>
+    <p class="classification"><strong>REMARKS: GOLD OLD DAYS CENTER PIECE</strong></p>
+
+
+
+    <br/>
+
+    <p class="classification"><strong>PRESIDENTIAL TABLE AREA</strong></p>
+    <div class="divider"></div>
+    <br/>
+    <p class="classification"><strong>DESIGN</strong></p>
+    <div class="divider"></div>
+    <p class="classification"><strong>THEME: AURELIAN GRACE-COUPLE (1 set(s))</strong></p>
+
+    <table class="sec-table">
+        <tr>
+            <td>VASES/EQUIPMENT</td>
+            <td>QTY/AREA</td>
+            <td>TOTAL QTY.</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - SQUARE VASE 4 X 8</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - RESIN SMALL CANDLE HOLDER GOLD</td>
+            <td>1</td>
+            <td>7</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - SCOTCH GLASS - NEW</td>
+            <td>2</td>
+            <td>14</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - RESIN TALL CANDLE HOLDER GOLD</td>
+            <td>1</td>
+            <td>7</td>
+        </tr>
+    </table>
+    <p class="classification"><strong>REMARKS: GOLD OLD DAYS CENTER PIECE</strong></p>
+
+
+
+    <br/>
+
+    <p class="classification"><strong>LINEN</strong></p>
+    <div class="divider"></div>
+    <p class="classification"><strong>THEME: 17-VP-GOLDOLD-BANQUET (2 set(s))</strong></p>
+
+    <table class="sec-table">
+        <tr>
+            <td>VASES/EQUIPMENT</td>
+            <td>QTY/AREA</td>
+            <td>TOTAL QTY.</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+    </table>
+
+
+
+
+    <br/>
+
+    <p class="classification"><strong>LOOSE ITEM</strong></p>
+    <div class="divider"></div>
+
+    <table class="sec-table">
+        <tr>
+            <td>VASES/EQUIPMENT</td>
+            <td>QTY/AREA</td>
+            <td>TOTAL QTY.</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+    </table>
+
+
+
+
+    <br/>
+
+
+    <p class="classification"><strong>BACKDROP AREA</strong></p>
+    <div class="divider"></div>
+    <br/>
+    <p class="classification"><strong>DESIGN</strong></p>
+    <div class="divider"></div>
+    <p class="classification"><strong>THEME: AURELIAN GRACE-COUPLE (1 set(s))</strong></p>
+
+    <table class="sec-table">
+        <tr>
+            <td>VASES/EQUIPMENT</td>
+            <td>QTY/AREA</td>
+            <td>TOTAL QTY.</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - SQUARE VASE 4 X 8</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - RESIN SMALL CANDLE HOLDER GOLD</td>
+            <td>1</td>
+            <td>7</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - SCOTCH GLASS - NEW</td>
+            <td>2</td>
+            <td>14</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - RESIN TALL CANDLE HOLDER GOLD</td>
+            <td>1</td>
+            <td>7</td>
+        </tr>
+    </table>
+    <p class="classification"><strong>REMARKS: GOLD OLD DAYS CENTER PIECE</strong></p>
+
+
+
+    <br/>
+
+
+    <p class="classification"><strong>LINEN</strong></p>
+    <div class="divider"></div>
+    <p class="classification"><strong>THEME: 17-VP-GOLDOLD-BANQUET (2 set(s))</strong></p>
+
+    <table class="sec-table">
+        <tr>
+            <td>VASES/EQUIPMENT</td>
+            <td>QTY/AREA</td>
+            <td>TOTAL QTY.</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+    </table>
+
+
+
+
+    <br/>
+
+    <p class="classification"><strong>LOOSE ITEM</strong></p>
+    <div class="divider"></div>
+
+    <table class="sec-table">
+        <tr>
+            <td>VASES/EQUIPMENT</td>
+            <td>QTY/AREA</td>
+            <td>TOTAL QTY.</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+    </table>
+
+
+
+
+    <br/>
+
+
+    <p class="classification"><strong>BUFFET CENTERPIECE AREA</strong></p>
+    <div class="divider"></div>
+    <br/>
+    <p class="classification"><strong>LINEN</strong></p>
+    <div class="divider"></div>
+    <p class="classification"><strong>LINEN RECIPE: AURELIAN GRACE-COUPLE (1 set(s))</strong></p>
+
+    <table class="sec-table">
+        <tr>
+            <td>VASES/EQUIPMENT</td>
+            <td>QTY/AREA</td>
+            <td>TOTAL QTY.</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+    </table>
+
+
+
+    <br/>
+
+    <p class="classification"><strong>COCKTAIL TABLE AREA</strong></p>
+    <div class="divider"></div>
+    <br/>
+    <p class="classification"><strong>LOOSE ITEM</strong></p>
+    <div class="divider"></div>
+
+    <table class="sec-table">
+        <tr>
+            <td>VASES/EQUIPMENT</td>
+            <td>QTY/AREA</td>
+            <td>TOTAL QTY.</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+    </table>
+
+
+
+    <br/>
+
+    <p class="classification"><strong>OTHERS AREA</strong></p>
+    <div class="divider"></div>
+    <br/>
+    <p class="classification"><strong>LINEN</strong></p>
+    <div class="divider"></div>
+    <p class="classification"><strong>LINEN RECIPE: AURELIAN GRACE-COUPLE (1 set(s))</strong></p>
+
+    <table class="sec-table">
+        <tr>
+            <td>VASES/EQUIPMENT</td>
+            <td>QTY/AREA</td>
+            <td>TOTAL QTY.</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+    </table>
+
+    <br/>
+    <p class="classification"><strong>LINEN</strong></p>
+    <div class="divider"></div>
+    <p class="classification"><strong>LINEN RECIPE: AURELIAN GRACE-COUPLE (1 set(s))</strong></p>
+
+    <table class="sec-table">
+        <tr>
+            <td>VASES/EQUIPMENT</td>
+            <td>QTY/AREA</td>
+            <td>TOTAL QTY.</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+    </table>
+    <br/>
+    <p class="classification"><strong>LINEN</strong></p>
+    <div class="divider"></div>
+    <p class="classification"><strong>LINEN RECIPE: AURELIAN GRACE-COUPLE (1 set(s))</strong></p>
+
+    <table class="sec-table">
+        <tr>
+            <td>VASES/EQUIPMENT</td>
+            <td>QTY/AREA</td>
+            <td>TOTAL QTY.</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+    </table>
+    <br/>
+    <p class="classification"><strong>LINEN</strong></p>
+    <div class="divider"></div>
+    <p class="classification"><strong>LINEN RECIPE: AURELIAN GRACE-COUPLE (1 set(s))</strong></p>
+
+    <table class="sec-table">
+        <tr>
+            <td>VASES/EQUIPMENT</td>
+            <td>QTY/AREA</td>
+            <td>TOTAL QTY.</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+    </table>
+
+
+
+    <br/>
+
+    <p class="classification"><strong>CAKE AREA</strong></p>
+    <div class="divider"></div>
+    <br/>
+    <p class="classification"><strong>LINEN</strong></p>
+    <div class="divider"></div>
+    <p class="classification"><strong>LINEN RECIPE: AURELIAN GRACE-COUPLE (1 set(s))</strong></p>
+
+    <table class="sec-table">
+        <tr>
+            <td>VASES/EQUIPMENT</td>
+            <td>QTY/AREA</td>
+            <td>TOTAL QTY.</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+    </table>
+
+    <br/>
+
+    <p class="classification"><strong>CENTER AISLE AREA</strong></p>
+    <div class="divider"></div>
+    <br/>
+    <p class="classification"><strong>LINEN</strong></p>
+    <div class="divider"></div>
+    <p class="classification"><strong>LINEN RECIPE: AURELIAN GRACE-COUPLE (1 set(s))</strong></p>
+
+    <table class="sec-table">
+        <tr>
+            <td>VASES/EQUIPMENT</td>
+            <td>QTY/AREA</td>
+            <td>TOTAL QTY.</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+    </table>
+
+    <br/>
+
+    <p class="classification"><strong>GIFT TABLE AREA</strong></p>
+    <div class="divider"></div>
+    <br/>
+    <p class="classification"><strong>LINEN</strong></p>
+    <div class="divider"></div>
+    <p class="classification"><strong>LINEN RECIPE: AURELIAN GRACE-COUPLE (1 set(s))</strong></p>
+
+    <table class="sec-table">
+        <tr>
+            <td>VASES/EQUIPMENT</td>
+            <td>QTY/AREA</td>
+            <td>TOTAL QTY.</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+        <tr>
+            <td>DESIGN ITEM - CYLINDER VASE 3 X 5</td>
+            <td>1</td>
+            <td>7</td>
+            <td>WITH FLOWERS</td>
+        </tr>
+    </table>
+
+    <br/>
+
+
+
+    <p class="classification"><strong>Services</strong></p>
+    <div class="divider"></div>
+    <table>
+        <tr>
+            <td>Manpower Code</td>
+            <td>Manpower Description</td>
+            <td align="right">Quantity UM</td>
+        </tr>
+    </table>
+    <div class="divider"></div>
+    <table class="items">
+        <tr>
+            <td>Not available</td>
+            <td align="center">Test description</td>
+            <td align="right">1 PCS</td>
+        </tr>
+         <tr>
+            <td>Not available</td>
+            <td align="center">Test description</td>
+            <td align="right">1 PCS</td>
+        </tr>
+    </table>
+    <p class="classification"><strong>Notes / Remarks</strong></p>
+    <div class="divider"></div>
+    <p>*NOT AVAILABLE*</p>
+
+    <br/>
+
+
+
+    <table class="items">
+        <tr>
+            <th><strong>Conforme:</strong><br/><br/><br/><br/><br/></th>
+        </tr>
+        <tr>
+            <td class="signature-line" colspan="3">________________________</td>
+            <td class="signature-line" colspan="3">________________________</td>
+            <td class="signature-line" colspan="3">________________________</td>
+        </tr>
+        <tr>
+            <td class="signature-line" colspan="3">Client's Signature</td>
+            <td class="signature-line" colspan="3">Account Executive</td>
+            <td class="signature-line" colspan="3">Hizon's Catering</td>
+        </tr>
+        
+    </table>
+    
+</body>
+</pdf>

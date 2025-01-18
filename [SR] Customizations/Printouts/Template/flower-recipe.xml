@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pdf PUBLIC "-//big.faceless.org//report" "report-1.1.dtd">
+<pdf>
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"></link>
+    <style type="text/css">{{css}}</style>
+</head>
+<body header="nlheader" header-height="70px" size="letter">
+<p><img src="{{bodyfields.logo}}" style="width: 200px; height: 170px;"/></p>
+<p style = "font-family: Arial, sans-serif; font-size: 15px;">HIZON'S RESTAURANT AND CATERING SERVICES, INC.</p>
+<p style = "font-family: Arial, sans-serif; font-size: 12px;">STANDARD RECIPE</p>
+<p style = "font-family: Arial, sans-serif; font-size: 12px;">Date Printed: {{bodyfields.currentdate}} </p>
+<p></p>
+<table class = "table-body">
+<tr>
+<td rowspan="7"><img src="{{bodyfields.image}}" style="width:200px; height:auto;"/></td>
+<td>Date Entered:</td>
+<td>{{bodyfields.datecreated}}</td>
+<td>Quantity Produced:</td>
+<td>{{bodyfields.quantity}}</td>
+</tr>
+<tr>
+<td>Product Code:</td>
+<td>{{bodyfields.productcode}}</td>
+<td>Cost/Piece:</td>
+<td>{{bodyfields.costperpiece}}</td>
+</tr>
+<tr>
+<td>Product Name:</td>
+<td>{{bodyfields.productname}}</td>
+</tr>
+<tr>
+<td>Classification:</td>
+<td>{{bodyfields.classification}}</td>
+</tr>
+<tr>
+<td>Remarks:</td>
+<td>{{bodyfields.remarks}}</td>
+</tr>
+<tr>
+<td>Level:</td>
+<td>{{bodyfields.level}}</td>
+</tr>
+<tr>
+<td>Status:</td>
+<td>{{bodyfields.status}}</td>
+</tr>
+</table>
+
+<p></p>
+<h5><strong>FLOWER</strong></h5>
+<table class="table-items">
+<tr>
+<th>Ingredients</th>
+<th>U/M</th>
+<th>Quantity</th>
+<th>Cost</th>
+<th>Amount</th>
+</tr>
+{{#each sublists.Ingredients}}
+ <tr>
+    <td><strong>{{getCategory @key}}</strong></td>
+  </tr>
+{{#each this}}
+<tr>
+<td>{{ingredient}}</td>
+<td>{{uomsize}}</td>
+<td style="align:right;">{{qty}}</td>
+<td style="align:right;">{{cost}}</td>
+<td style="align:right;">{{amount}}</td>
+</tr>
+{{/each}}
+{{/each}}
+<tr>
+<td style="border-right: 0px;"><strong>TOTAL COST</strong></td>
+<td style="border-left: 0px; border-right: 0px;"></td>
+<td style="border-left: 0px; border-right: 0px;"></td>
+<td style="border-left: 0px;"></td>
+<td>{{bodyfields.totalcost}}</td>
+</tr>
+</table>
+
+</body>
+</pdf>
