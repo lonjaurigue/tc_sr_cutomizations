@@ -3,11 +3,12 @@ define(
         'N/record',
         'N/task',
         'N/redirect',
+        'N/query',
         './hcs_lib_validator',
         '../../Helper/helper',
     ]
 ,
-(record, task, redirect, validator, helper) => {
+(record, task, redirect, query, validator, helper) => {
 
     const create = (options) => {
         const intCostingSheet = options.costingSheet
@@ -58,8 +59,67 @@ define(
         })
     }
 
+    const prorateUnitCost = (options) => {
+        var ingredientSublistCount = options.data.sublists.recmachcustrecord_fcs_c.length;
+        log.debug('prorateUnitCost | ingredientSublistCount', ingredientSublistCount);
+
+        var unitCost;
+        var uom;
+        var uomPurchase;
+        var fromUom;
+        var toUom;
+        var convertedUnitCost;
+
+        for (var i = 0; i < ingredientSublistCount; i++) {
+            unitCost = options.data.sublists.recmachcustrecord_fcs_c[i].custom_unit_cost;
+            uom = options.data.sublists.recmachcustrecord_fcs_c[i].custrecord_uom_c;
+            uomPurchase = options.data.sublists.recmachcustrecord_fcs_c[i].custrecord_uom_c_purchase;
+            log.debug('prorateUnitCost | uom', uom);
+            log.debug('prorateUnitCost | uomPurchase', uomPurchase);
+
+            fromUom = getUnitsTypeUom(uom);
+		    toUom = getUnitsTypeUom(uomPurchase);
+
+            convertedUnitCost = unitCost * parseFloat(toUom.conversionrate) / parseFloat(fromUom.conversionrate);
+            log.debug('prorateUnitCost | UNIT CONVERSION', 'unitCost: '+unitCost+' | convertedUnitCost: '+convertedUnitCost);
+
+            options.data.sublists.recmachcustrecord_fcs_c[i].custom_unit_cost = convertedUnitCost;
+        }
+
+        return options.data;
+    }
+
+    function getUnitsTypeUom(id){
+		var out;
+
+		var statement = `
+			SELECT 
+			 	internalid, conversionrate
+			from 
+			 	UnitsTypeUom 
+			where 
+			 	internalid = '${id}'
+		`;
+
+		log.debug('getUnitsTypeUom | statement', statement);
+
+		var results = query.runSuiteQL({
+		        query: statement,
+		        params: []
+		    })
+		    .asMappedResults();
+
+		if(results && results.length > 0){
+			out = results[0];
+		}
+
+		return out;
+
+	}
+
     return {
-        create
+        create,
+        prorateUnitCost
     }
 
 })

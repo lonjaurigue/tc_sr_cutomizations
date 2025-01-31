@@ -9,9 +9,10 @@ define(
         'N/runtime',
         '../Library/hcs_lib_mapping',
         '../Library/hcs_lib_mapper',
+        '../Library/hcs_lib_purchaserequest',
         '../../Helper/helper'
     ],
-(error, record, runtime, mapping, mapper, helper) => {
+(error, record, runtime, mapping, mapper, purchaseRequestLibrary, helper) => {
 
     const getInputData = (inputContext) => {
 
@@ -172,11 +173,15 @@ define(
                 [key['custom_source_sublist']]: values
             }
 
+            log.debug('map | objData', JSON.stringify(objData));
 
             let recPurchaseRequst = record.create({
                 type: record.Type.PURCHASE_REQUISITION,
                 isDynamic: true
             })
+
+            // Performs proration of unit cost based on the conversion of UOMs
+            objData = purchaseRequestLibrary.prorateUnitCost({data: objData});
 
             const output =  mapper.jsonMapToRecord({
                 data: objData,
