@@ -100,7 +100,7 @@ define(['N/record', 'N/render', 'N/log', 'N/file'], function (record, render, lo
                 pdfContent += '<td><strong>Event Start Time:</strong></td><td>' + formatTime(salesOrder.getValue({ fieldId: 'custbody_hz_dispatch_time' })) + '</td></tr>';
                 pdfContent += '<tr><td><strong>Remarks:</strong></td><td>' + escapeXml(salesOrder.getValue({ fieldId: 'memo' })) + '</td>';
                 pdfContent += '<td><strong>Food Setup Time:</strong></td><td>' + formatTime(salesOrder.getValue({ fieldId: 'custbody_timebookofthevenuefrom' })) + '</td></tr>';
-                pdfContent += '<tr><td><strong>Venue:</strong></td><td>' + getVenueName(salesOrder) + '</td>';
+                pdfContent += '<tr><td><strong>Venue:</strong></td><td>' + escapeXml(getVenueName(salesOrder)) + '</td>';
                 pdfContent += '<td><strong>Event Service Time:</strong></td><td>' + formatTime(salesOrder.getValue({ fieldId: 'custbody_timebookofthevenueto' })) + '</td></tr>';
                 pdfContent += '<tr><td colspan="1"><strong>Total Number of Pax:</strong></td><td>' + salesOrder.getValue({ fieldId: 'custbody_hz_total_number_of_pax' }) + '</td>';
                 pdfContent += '<td><strong>Event End Time:</strong></td><td>' + formatTime(salesOrder.getValue({ fieldId: 'custbody_hz_servicetime' })) + '</td></tr>';
@@ -134,7 +134,7 @@ define(['N/record', 'N/render', 'N/log', 'N/file'], function (record, render, lo
                         } else if (itemType === "Markup") {
                             // For Markup items, retrieve the display name
                             var markupRecord = record.load({ type: record.Type.MARKUP_ITEM, id: itemId });
-                            itemName = escapeXml(markupRecord.getValue({ fieldId: 'displayname' }) || ''); // Retrieve display name or default to empty
+                            itemName = escapeXml(markupRecord.getValue({ fieldId: 'itemid' }) || ''); // Retrieve display name or default to empty
                         } else {
                             // For other item types, use the description field
                             itemName = escapeXml(salesOrder.getSublistText({ sublistId: 'item', fieldId: 'description', line: i }));
@@ -239,17 +239,41 @@ define(['N/record', 'N/render', 'N/log', 'N/file'], function (record, render, lo
                 // Food and Beverage Details
                 pdfContent += '<table border="1" style="margin-top: 10px; width: 100%">';
                 pdfContent += '<tr><td style="font-size: 10pt;"><strong>Food and Beverage Menu</strong></td></tr>';
+
                 var lineCount = salesOrder.getLineCount({ sublistId: 'recmachcustrecord_transaction_fb_food' });
+
+                // Track how many items are added in the current row
+                var columnCount = 0;
+
                 for (var i = 0; i < lineCount; i++) {
                     var foodItem = salesOrder.getSublistText({
                         sublistId: 'recmachcustrecord_transaction_fb_food',
                         fieldId: 'custrecord_menu_desc_beo_printout_v2',
                         line: i
                     });
+                
                     foodItem = foodItem.substring(0);
-
-                    pdfContent += '<tr><td>' + escapeXml(foodItem) + '</td></tr>';
+                
+                    // Start a new row when needed
+                    if (columnCount === 0) {
+                        pdfContent += '<tr>';
+                    }
+                
+                    // Add a cell for the current item
+                    pdfContent += '<td>' + escapeXml(foodItem) + '</td>';
+                    columnCount++;
+                
+                   // If 2 columns are filled or it's the last item, close the row
+                    if (columnCount === 2 || i === lineCount - 1) {
+                        // Add an empty cell if it's the last item and only one column is filled
+                        if (columnCount === 1) {
+                            pdfContent += '<td></td>';
+                        }
+                        pdfContent += '</tr>';
+                        columnCount = 0; // Reset column count for the next row
+                    }
                 }
+              
                 pdfContent += '</table>';
 
                 // Page break before the table content

@@ -152,13 +152,13 @@ define(['N/record', 'N/log', 'N/format', 'N/render'], function(record, log, form
 
                         var rate = itemReceipt.getSublistValue({
                             sublistId: 'item',
-                            fieldId: 'rate',
+                            fieldId: 'custcol_rr_item_rate',
                             line: i
                         });
 
                         var amount = itemReceipt.getSublistValue({
                             sublistId: 'item',
-                            fieldId: 'itemfxamount',
+                            fieldId: 'custcol_rr_total_cost',
                             line: i
                         });
 

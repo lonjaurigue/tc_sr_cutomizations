@@ -251,13 +251,11 @@ define([
 
     const displayPRButton = (objForm, recNewRecord, intSubsidiary, strSuiteLetConverter) => {
         let hasRequisition = getRequisition(recNewRecord);
+      log.error('displayPRButton | hasRequisition', hasRequisition);
         let sourceIngSummaryInProgress = isSourceIngredintSummaryMRInProgress(recNewRecord);
         let itemsAlreadyProcessed = areItemsAlreadyProcessed(recNewRecord);
         if(itemsAlreadyProcessed) showBannerAboutProcessedItem(objForm);
-// TODO:
-        log.audit('displayPRButton | hasRequisition', hasRequisition);
-        log.audit('displayPRButton | sourceIngSummaryInProgress', sourceIngSummaryInProgress);
-        log.audit('displayPRButton | itemsAlreadyProcessed', itemsAlreadyProcessed);
+
         if (!hasRequisition && !sourceIngSummaryInProgress && !itemsAlreadyProcessed){
             objForm.addButton({
                 id: 'custpage_btn_createpr',
@@ -305,8 +303,9 @@ define([
 
     const getRequisition = (recNewRecord) => {
         var requisitionRes = query.runSuiteQL({
-            query: `Select id, recordtype from transaction where custbody_related_costing_sheet = ${recNewRecord.id} AND recordtype = 'purchaserequisition'`
-            // query: `Select id, recordtype from transaction where custbody_tc_linked_purchase_request = ${recNewRecord.id} AND recordtype = 'purchaserequisition'`
+            query: `
+            Select id, recordtype from transaction where custbody_related_costing_sheet = ${recNewRecord.id} AND recordtype = 'purchaserequisition'
+        `
         }).asMappedResults();
         var hasRequisition = requisitionRes.length > 0 ? true : false;
         log.debug('hasRequisition', hasRequisition)

@@ -26,7 +26,7 @@ define(['N/record', 'N/ui/serverWidget', 'N/url'], function (record, serverWidge
                     // Add the "Print BEO" button to the form
                     form.addButton({
                         id: 'custpage_print_beo',
-                        label: 'Print BEO SGS',
+                        label: 'Print BEO',
                         functionName: "window.open('" + getSuiteletUrl(recordObj.id) + "', '_blank');" // Directly open the Suitelet URL in a new window
                     });
                 }
@@ -37,7 +37,7 @@ define(['N/record', 'N/ui/serverWidget', 'N/url'], function (record, serverWidge
     // Function to generate Suitelet URL with sales order ID parameter
     function getSuiteletUrl(salesOrderId) {
         var suiteletUrl = url.resolveScript({
-            scriptId: 'customscript1481', // Replace with your Suitelet script ID
+            scriptId: 'customscript1572', // Replace with your Suitelet script ID
             deploymentId: 'customdeploy1', // Replace with your Suitelet deployment ID
             params: {
                 salesorder: salesOrderId // Use 'salesorder' as the parameter name
